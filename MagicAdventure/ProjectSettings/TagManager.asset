@@ -8,6 +8,7 @@ TagManager:
   - LightEnvironment
   - DarkEnvironment
   - Ground
+  - PlayerDetector
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - 
   - LightScene
   - DarkScene
-  - 
+  - PlayerDetector
   - 
   - 
   - 
