@@ -10,8 +10,6 @@ public class SceneTransManager : MonoBehaviour
     public Animator transition;
     
     [SerializeField] private float transitionTime = 1f;
-    [SerializeField] private string detectorTag;
-    [SerializeField] private GameObject[] detectors;
 
     public Vector3 playerDestination;
 
@@ -26,12 +24,6 @@ public class SceneTransManager : MonoBehaviour
         }
         
         DontDestroyOnLoad(gameObject);
-        GetDetectors();
-    }
-
-    private void GetDetectors()
-    {
-        detectors = GameObject.FindGameObjectsWithTag(detectorTag);
     }
 
     public void LoadScene(int sceneToLoad) {

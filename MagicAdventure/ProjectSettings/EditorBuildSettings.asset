@@ -6,10 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SceneTransTest.unity
-    guid: b73542e57e9399f4283d7d6fdd93001a
+    path: Assets/Scenes/CampScene.unity
+    guid: 318b0239cabc9254aa8afc8cd424323f
   - enabled: 1
-    path: Assets/Scenes/SceneTransTest 1.unity
-    guid: b343fbfeb37176542a08648b4d7b40c5
+    path: Assets/Scenes/MushroomScene.unity
+    guid: 939937e665e50204f8c1ee6c6c4615e0
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 5c56209ced0167b47bce8823834f6bd4, type: 2}
