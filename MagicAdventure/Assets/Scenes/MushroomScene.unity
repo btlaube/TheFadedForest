@@ -792,6 +792,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6149412383527845055, guid: 4d0fcd6691a5ed046981401162bc1b12, type: 3}
+      propertyPath: walkInterval
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6982775801402351034, guid: 4d0fcd6691a5ed046981401162bc1b12, type: 3}
       propertyPath: m_RootOrder
       value: 1

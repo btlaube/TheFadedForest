@@ -74,26 +74,6 @@ public class PlayerController : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
     }
 
-    // private void OnEnable()
-    // {
-    //     playerInput.Player.Jump.performed += Jump;
-    //     playerInput.Player.Jump.performed += Fly;
-    //     playerInput.Player.Shoot.performed += Shoot;
-    //     playerInput.Rhythm.Left.performed += ShootLeft; 
-    //     playerInput.Rhythm.Right.performed += ShootRight;
-    //     // playerInput.Player.Punch.performed += Punch;
-    // }
-
-    // private void OnDisable()
-    // {
-    //     playerInput.Player.Jump.performed -= Jump;
-    //     playerInput.Player.Jump.performed -= Fly;
-    //     playerInput.Player.Shoot.performed -= Shoot;
-    //     playerInput.Rhythm.Left.performed -= ShootLeft; 
-    //     playerInput.Rhythm.Right.performed -= ShootRight; 
-    //     // playerInput.Player.Punch.performed -= Punch;
-    // }
-
     private void Update()
     {
         // Check if the player is grounded
@@ -113,6 +93,7 @@ public class PlayerController : MonoBehaviour
         // -- Handle input and movement --
         Vector2 inputVector = Vector2.zero;
         inputVector.x = Input.GetAxis("Horizontal");
+        bool jumped = Input.GetAxis("Jump") != 0.0f;
         // rb.velocity = new Vector2(inputVector.x * moveSpeed, rb.velocity.y);
 
         // float horizontalInput = Input.GetAxis("Horizontal");
@@ -120,6 +101,11 @@ public class PlayerController : MonoBehaviour
 
         // Apply deceleration based on whether the player is on the ground or in the air
         float deceleration = isGrounded ? groundDeceleration : airDeceleration;
+
+        if (jumped)
+        {
+            Shoot();
+        }
 
         if (isGrounded)
         {
@@ -231,7 +217,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void Jump(InputAction.CallbackContext context) {
+    private void Jump() {
         if (isGrounded) {
             // animator.SetTrigger("Jump");
             isGrounded = false;

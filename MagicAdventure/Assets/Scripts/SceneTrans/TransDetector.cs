@@ -12,7 +12,7 @@ public class TransDetector : MonoBehaviour
 
     private void Awake()
     {
-        transManager = GameObject.Find("SceneTransManager").GetComponent<SceneTransManager>();
+        transManager = GameObject.Find("SceneTransitionManager").GetComponent<SceneTransManager>();
     }
 
     public void OnTriggerEnter2D(Collider2D other)
