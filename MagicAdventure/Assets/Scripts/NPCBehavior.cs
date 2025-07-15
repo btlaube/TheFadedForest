@@ -13,7 +13,7 @@ public class NPCBehavior : MonoBehaviour
     public float walkMinPitch = 0.8f;
     public float walkMaxPitch = 0.9f;
     
-    public float walkDuration;
+    // public float walkDuration;
 
     private Rigidbody2D rb;
     private Animator animator;
@@ -39,29 +39,29 @@ public class NPCBehavior : MonoBehaviour
         animator.SetBool("IsGrounded", isGrounded);
     }
   
-    public void StartWalk(float direction)
+    public void StartWalk(float direction, float duration)
     {
         if (direction > 0)
         {
-            StartCoroutine("WalkRight");
+            StartCoroutine(WalkRight(duration));
         }
         else
         {
-            StartCoroutine("WalkLeft");
+            StartCoroutine(WalkLeft(duration));
         }
     }
 
-    public IEnumerator WalkRight()
+    public IEnumerator WalkRight(float duration)
     {
         movement.x = 1.0f;
-        yield return new WaitForSeconds(walkDuration);
+        yield return new WaitForSeconds(duration);
         movement.x = 0f;
     }
 
-    public IEnumerator WalkLeft()
+    public IEnumerator WalkLeft(float duration)
     {
         movement.x = -1.0f;
-        yield return new WaitForSeconds(walkDuration);
+        yield return new WaitForSeconds(duration);
         movement.x = 0f;
     }
 

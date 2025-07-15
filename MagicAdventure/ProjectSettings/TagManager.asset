@@ -9,6 +9,7 @@ TagManager:
   - DarkEnvironment
   - Ground
   - PlayerDetector
+  - Campfire
   layers:
   - Default
   - TransparentFX

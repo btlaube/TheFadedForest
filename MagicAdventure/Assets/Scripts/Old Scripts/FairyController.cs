@@ -25,6 +25,9 @@ public class FairyController : MonoBehaviour
     private SpriteRenderer sr;
     private float previousSpeed;
 
+    // Disable controls
+    private bool isDisabled;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -45,6 +48,7 @@ public class FairyController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (isDisabled) return;
         if (isDead) return;
         Vector2 direction = targetPosition - rb.position;
         direction.Normalize();
@@ -99,11 +103,13 @@ public class FairyController : MonoBehaviour
     {
         if (direction > 0f)
         {
-            sr.flipX = true; // flipped (facing right)
+            // sr.flipX = true; // flipped (facing right)
+            transform.localScale = new Vector3(-3f, 3f, 3f);
         }
         else if (direction < 0f)
         {
             sr.flipX = false; // Not Flipped (facing left)
+            transform.localScale = new Vector3(3f, 3f, 3f);
         }
     }
 
@@ -131,6 +137,20 @@ public class FairyController : MonoBehaviour
             other.gameObject.GetComponent<PlayerHealth>().TakeDamage();
             Destroy(gameObject);
         }
+        else if (other.tag == "Campfire")
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public void DisableControls()
+    {
+        isDisabled = true;
+    }
+
+    public void EnableControls()
+    {
+        isDisabled = false;
     }
 
 }

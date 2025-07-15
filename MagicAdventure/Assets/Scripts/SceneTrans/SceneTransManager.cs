@@ -7,7 +7,7 @@ public class SceneTransManager : MonoBehaviour
 {
     public GameObject playerPrefab;
     public static SceneTransManager Instance;
-    public Animator transition;
+    public Animator[] transitions;
     
     [SerializeField] private float transitionTime = 1f;
 
@@ -30,14 +30,14 @@ public class SceneTransManager : MonoBehaviour
         StartCoroutine(LoadLevel(sceneToLoad));
     }
 
-    IEnumerator LoadLevel(int levelIndex) {
-        transition.SetTrigger("Start");
+    IEnumerator LoadLevel(int levelIndex, int transitionIndex = 0) {
+        transitions[transitionIndex].SetTrigger("Start");
 
         yield return new WaitForSeconds(transitionTime);
 
         SceneManager.LoadScene(levelIndex);        
 
-        transition.SetTrigger("End");
+        transitions[transitionIndex].SetTrigger("End");
         SpawnPlayer();
     }
 
@@ -47,4 +47,30 @@ public class SceneTransManager : MonoBehaviour
         Debug.Log(player);
         player.transform.position = playerDestination;
     }
+
+    public void DoTransition(int transitionIndex = 0)
+    {
+        StartCoroutine(Transition(transitionIndex));
+    }
+
+    public IEnumerator Transition(int transitionIndex = 0) 
+    {
+        Debug.Log("Doing transition...");
+        transitions[transitionIndex].SetTrigger("Start");
+
+        yield return new WaitForSeconds(transitionTime);
+
+        transitions[transitionIndex].SetTrigger("End");
+    }
+
+    public void StartTransition(int transitionIndex = 0)
+    {
+        transitions[transitionIndex].SetTrigger("Start");
+    }
+
+    public void EndTransition(int transitionIndex = 0)
+    {
+        transitions[transitionIndex].SetTrigger("End");
+    }
+
 }

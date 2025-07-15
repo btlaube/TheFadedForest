@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7175860872022547522}
   - component: {fileID: 1918934678692862580}
-  - component: {fileID: 4894960288667483492}
+  - component: {fileID: 8197631284978016057}
   m_Layer: 11
   m_Name: TransDetector
   m_TagString: PlayerDetector
@@ -31,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1918934678692862580
 CircleCollider2D:
@@ -68,7 +68,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.2
---- !u!114 &4894960288667483492
+--- !u!114 &8197631284978016057
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -77,9 +77,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7823135457805960007}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 886b368201d44254695572c7de01db94, type: 3}
+  m_Script: {fileID: 11500000, guid: cabb179c6d373064fa4ec51e094c2771, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: 1
-  playerDestination: {x: -9, y: -4.63747, z: 0}
-  triggerDirection: -1
+  sceneToLoad: 0
+  playerDestination: {x: 0, y: 0, z: 0}
+  triggerDirection: 0
